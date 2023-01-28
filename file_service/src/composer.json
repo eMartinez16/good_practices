@@ -1,0 +1,17 @@
+{
+    "name": "emartinez/file_service",
+    "autoload": {
+        "psr-4": {
+            "Emartinez\\FileService\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "eMartinez",
+            "email": "emiliano.martinez@syloper.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    }
+}
