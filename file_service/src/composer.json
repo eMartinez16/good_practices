@@ -2,7 +2,10 @@
     "name": "emartinez/file_service",
     "autoload": {
         "psr-4": {
-            "Emartinez\\FileService\\": "src/"
+            "Emartinez\\FileService\\": "./"
+        },
+        "psr-1": {
+            "Emartinez\\FileService\\": "./"
         }
     },
     "authors": [
