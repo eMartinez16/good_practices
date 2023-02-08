@@ -10,4 +10,9 @@ class FileTypes{
     {
         return self::TYPES;
     }
+
+    public static function getSpecificType(int $position) : string
+    {
+        return self::TYPES[$position];
+    }
 }

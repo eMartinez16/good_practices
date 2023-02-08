@@ -1,6 +1,7 @@
 <?php
 namespace src;
 
+use Exceptions\FileTypeException;
 use src\Services\StoreService;
 use UploadInterface;
 use Utils\Constants\FileTypes;
@@ -8,13 +9,17 @@ use Utils\Constants\FileTypes;
 class UploadFile implements UploadInterface{
 
     protected StoreService $service;
+    /**
+     * dependency injection
+     * @param StoreService $service
+     */
     public function __construct(StoreService $service)
     {
         $this->service = $service;
     }
 
     /**
-     * @todo ver los tipos que recibiria en file
+     * @todo  must see file type (parameter)
      * @param mixed $file
      * @param string $path
      * @return void
@@ -23,8 +28,14 @@ class UploadFile implements UploadInterface{
     {
 
         $ext = pathinfo($file, PATHINFO_EXTENSION);
-        if(in_array($ext, FileTypes::getTypes())){
-            $this->store($this->service, $path, $file);
+
+        if( in_array($ext, FileTypes::getTypes())){
+
+            try{
+                $this->store($this->service, $path, $file);
+            }catch(FileTypeException $err){
+                throw $err;
+            }
         }
     }
 

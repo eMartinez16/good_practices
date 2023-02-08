@@ -3,7 +3,7 @@
 use src\Services\StoreService;
 
 /**
- * Podemos agregar otras funcionalidades mas aca..
+ * we can add more functions here
  */
 interface UploadInterface{
 
